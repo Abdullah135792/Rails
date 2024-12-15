@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       
+        body{
+            background-color: black;
+        }
+
+i{
+    width: 200px;
+}
+.head{
+    display: none;
+}
+
+html{
+    scroll-snap-type: y mandatory;
+}
+   
+
+.conter{
+            margin: auto;
+            width: 600px;
+            height: 100vh;
+            
+        }
+        .conter video{
+            background-color: aqua;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        i{
+            width: 100px;
+            text-align: center;
+            border: 1px solid rgb(15, 15, 15);
+            color: aqua;
+            font-size: 50px;
+            border-radius:50px ;
+            height: 50px;
+          
+        }
+        #left{
+       position: absolute;
+       top: 50%;
+       left: 20%;
+       
+ 
+    }
+    #right{
+        right: 21%;
+        position: absolute;
+        top: 50%;
+         
+         
+        }
+        @media(min-width:900px) and (max-width:1350px) {
+            .conter{
+            width: 500px;
+        }
+        #left{
+       left: 11%;
+    }
+    #right{
+        right: 12%;
+        }
+        i{
+            width: 50px;                
+                   
+        }
+        }
+        @media(min-width:500px) and (max-width:899px) {
+            .conter{
+            width: 350px;
+        }
+        #left{
+       left: 0%;
+    }
+    #right{
+        right: 0%;
+        }     
+           i{
+            width: 50px;                
+            font-size: 40px;
+            height: 40px;        
+        }
+        }
+        @media(min-width:1px) and (max-width:499px) {
+            .conter{
+            width: 100%;
+            height: 100vh;
+            margin-bottom: 40px;
+            padding-top:0;
+            scroll-snap-align: start;
+            
+        }
+        .conter video{
+            background-color: rgb(5, 5, 5);
+      
+        }
+    #right{
+    display: none; 
+        }      
+        #left{
+       display: none;   
+    }          
+    }
+
+    </style>
+</head>
+<body>
+    <div class="contianer">
+       
+        <i id="right" class="fa-solid fa-arrow-right"></i>
+        <div class="conter">
+            <video id="vo"src="1.mp4" autoplay ></video >
+            </div>
+       
+ 
+            <i id="left" class="fa-solid fa-arrow-left"></i>
+
+            <div class="conter head">
+                <video id="vo"src="2.mp4" autoplay ></video >
+                </div>
+                <div class="conter head">
+                    <video id="vo"src="3.mp4" autoplay ></video >
+                    </div>
+                    <div class="conter head">
+                        <video id="vo"src="4.mp4" autoplay ></video >
+                        </div>
+                        <div class="conter head">
+                            <video id="vo"src="5.mp4" autoplay ></video >
+                            </div>
+                            <div class="conter head">
+                                <video id="vo"src="6.mp4" autoplay ></video >
+                                </div>
+                                <div class="conter head">
+                                    <video id="vo"src="7.mp4" autoplay ></video >
+                                    </div> 
+                                    <div class="conter head">
+                                        <video id="vo"src="8.mp4" autoplay ></video >
+                                        </div> 
+                                        <div class="conter head">
+                                            <video id="vo"src="9.mp4" autoplay ></video >
+                                            </div> 
+                
+            
+    </div>
+
+<script>
+
+    let vo=document.getElementById('vo');
+    let right=document.getElementById('right');
+    let left=document.getElementById('left');
+    let videos=['1.mp4','2.mp4','3.mp4','4.mp4','5.mp4','6.mp4','7.mp4','8.mp4','9mp4'];
+    let m=0;
+
+    left.style.display='none'
+   right.onclick=function(){
+       
+       if(m<8){
+           
+           
+           //console.log(video[m]);
+           vo.src=`${videos[m]}`
+           m++;
+}else{
+            vo.src=`${videos[3]}`
+
+        }
+                
+        left.style.display='block'
+        
+        
+        
+    }
+    left.onclick=function(){
+        if(m==0){
+            left.style.display='none'
+            
+        }
+        
+        
+        if(m>0){
+
+            
+            
+            // console.log(video[m]);
+            m--;
+            vo.src=`${videos[m]}`
+        }else{
+            vo.src=`${videos[0]}`
+            
+            
+        }
+        
+        
+    }
+    let conter=document.getElementsByClassName('conter')[1];
+    let conter1=document.getElementsByClassName('conter')[2];
+    let conter2=document.getElementsByClassName('conter')[3];
+    let conter3=document.getElementsByClassName('conter')[4];
+    let conter4=document.getElementsByClassName('conter')[5];
+    let conter5=document.getElementsByClassName('conter')[6];
+    let conter6=document.getElementsByClassName('conter')[7];
+    let conter7=document.getElementsByClassName('conter')[8];
+ 
+  console.log(conter1)
+  
+  function sc(){
+      if(screen.width<500){
+          
+          conter.classList.remove('head')
+          conter1.classList.remove('head')
+          conter2.classList.remove('head')
+          conter3.classList.remove('head')
+          conter4.classList.remove('head')
+          conter5.classList.remove('head')
+          conter6.classList.remove('head')
+          conter7.classList.remove('head')
+          let vod=document.querySelectorAll('video')
+          for(let video of vod){
+            video.addEventListener('click',function(){
+                
+                if(video.paused){
+                    video.play();
+                }else{
+                    video.pause()
+                }
+            })
+            window.addEventListener('scroll',function(){
+                if(scrollY>400){
+                    
+                    video.pause()
+                }else{
+                    console.log('h')
+                    
+                }
+            }) 
+        }
+          
+               
+              }else{
+                
+                  conter.classList.add('head')
+               conter1.classList.add('head')
+               conter2.classList.add('head')
+               conter3.classList.add('head')
+               conter4.classList.add('head')
+               conter5.classList.add('head')
+               conter6.classList.add('head')
+               conter7.classList.add('head')
+                  
+              }
+
+        }
+      
+        sc()
+    
+</script>
+</body>
+</html>
